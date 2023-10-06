@@ -25,7 +25,7 @@ let SearchSelectJS = function( elem )
         // get the global fill value if defined
         this.globalFillValue = elem.dataset.fillvalue ?? null;
 
-        elem.style.display = 'none';
+        elem.classList.add('ssjs-hiddenslelect');
         this.fillerObject.addEventListener('click',()=>_this.open())
     }
     else

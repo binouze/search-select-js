@@ -85,6 +85,12 @@ body.ssjs-open{
     font-weight: bold;
 }
 
+.ssjs-hiddenslelect{
+    position: absolute;
+    top: -5000px;
+    left: 0;
+}
+
 .ssjs-searchinput{
     margin-left:   10px;
     margin-right:  10px;
