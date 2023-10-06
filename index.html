@@ -4,8 +4,14 @@
     <meta charset="UTF-8">
     <title>Title</title>
 
+    <!-- USE FROM CDN
     <script src="https://cdn.jsdelivr.net/gh/binouze/search-select-js/src/searchselect.min.js"></script>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/binouze/search-select-js/src/searchselect.min.css" type="text/css" />
+    -->
+
+    <!-- USE LOCAL -->
+    <script src="/src/searchselect.js"></script>
+    <link rel="stylesheet" href="/src/searchselect.css" type="text/css" />
 
     <style>
         body{
@@ -13,67 +19,1024 @@
             background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
             background-attachment: fixed;
         }
+
+        .flagimg{
+            width:          24px;
+            height:         20px;
+            margin-right:   10px;
+            vertical-align: middle;
+        }
+
+        .arrow-down {
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 5px solid #000;
+            margin-left: auto;
+        }
+
+        #select3-fill{
+            display:     flex;
+            align-items: center;
+            user-select: none;
+            background: #fff;
+            border:1px solid #000;
+            padding:7px;
+            border-radius: 5px;
+            margin-top:10px;
+            cursor: pointer;
+        }
     </style>
+
+    <script>
+        // on document is loaded, transform elements with searchselect-js class into SearchSelectJS elements
+        document.addEventListener("DOMContentLoaded", () =>
+        {
+            const select2 = document.getElementById('select2');
+            const searchselect2 = new SearchSelectJS(select2);
+
+            // can open it with script
+            searchselect2.open();
+        });
+    </script>
 </head>
 <body>
 
 <!-- a select input classic -->
+ORIGINAL SELECT<br>
+<label for="select0">Select a value</label><br>
 <select id="select0">
-    <option value="0">VALUE 0</option>
-    <option value="1">VALUE 1</option>
-    <option value="2">VALUE 2</option>
-    <option value="3">VALUE 3</option>
-    <option value="4">VALUE 4</option>
-    <option value="5">VALUE 5</option>
-    <option value="6">VALUE 6</option>
-    <option value="7">VALUE 7</option>
-    <option value="8">VALUE 8</option>
-    <option value="9">VALUE 9</option>
+    <option value="AF">Afghanistan</option>
+    <option value="AL">Albania</option>
+    <option value="DZ">Algeria</option>
+    <option value="AS">American Samoa</option>
+    <option value="AD">Andorra</option>
+    <option value="AO">Angola</option>
+    <option value="AI">Anguilla</option>
+    <option value="AQ">Antarctica</option>
+    <option value="AG">Antigua &amp; Barbuda</option>
+    <option value="AR">Argentina</option>
+    <option value="AM">Armenia</option>
+    <option value="AW">Aruba</option>
+    <option value="AU">Australia</option>
+    <option value="AT">Austria</option>
+    <option value="AZ">Azerbaijan</option>
+    <option value="BS">Bahamas</option>
+    <option value="BH">Bahrain</option>
+    <option value="BD">Bangladesh</option>
+    <option value="BB">Barbados</option>
+    <option value="BY">Belarus</option>
+    <option value="BE">Belgium</option>
+    <option value="BZ">Belize</option>
+    <option value="BJ">Benin</option>
+    <option value="BM">Bermuda</option>
+    <option value="BT">Bhutan</option>
+    <option value="BO">Bolivia</option>
+    <option value="BA">Bosnia &amp; Herzegovina</option>
+    <option value="BW">Botswana</option>
+    <option value="BR">Brazil</option>
+    <option value="IO">British Indian Ocean Territory</option>
+    <option value="VG">British Virgin Islands</option>
+    <option value="BN">Brunei</option>
+    <option value="BG">Bulgaria</option>
+    <option value="BF">Burkina Faso</option>
+    <option value="BI">Burundi</option>
+    <option value="KH">Cambodia</option>
+    <option value="CM">Cameroon</option>
+    <option value="CA">Canada</option>
+    <option value="CV">Cape Verde</option>
+    <option value="KY">Cayman Islands</option>
+    <option value="CF">Central African Republic</option>
+    <option value="TD">Chad</option>
+    <option value="CL">Chile</option>
+    <option value="CN">China</option>
+    <option value="CX">Christmas Island</option>
+    <option value="CC">Cocos (Keeling) Islands</option>
+    <option value="CO">Colombia</option>
+    <option value="KM">Comoros</option>
+    <option value="CG">Congo - Brazzaville</option>
+    <option value="CD">Congo - Kinshasa</option>
+    <option value="CK">Cook Islands</option>
+    <option value="CR">Costa Rica</option>
+    <option value="CI">Côte d’Ivoire</option>
+    <option value="HR">Croatia</option>
+    <option value="CU">Cuba</option>
+    <option value="CY">Cyprus</option>
+    <option value="CZ">Czechia</option>
+    <option value="DK">Denmark</option>
+    <option value="DJ">Djibouti</option>
+    <option value="DM">Dominica</option>
+    <option value="DO">Dominican Republic</option>
+    <option value="EC">Ecuador</option>
+    <option value="EG">Egypt</option>
+    <option value="SV">El Salvador</option>
+    <option value="GQ">Equatorial Guinea</option>
+    <option value="ER">Eritrea</option>
+    <option value="EE">Estonia</option>
+    <option value="ET">Ethiopia</option>
+    <option value="FK">Falkland Islands</option>
+    <option value="FO">Faroe Islands</option>
+    <option value="FJ">Fiji</option>
+    <option value="FI">Finland</option>
+    <option value="FR">France</option>
+    <option value="GF">French Guiana</option>
+    <option value="PF">French Polynesia</option>
+    <option value="GA">Gabon</option>
+    <option value="GM">Gambia</option>
+    <option value="GE">Georgia</option>
+    <option value="DE">Germany</option>
+    <option value="GH">Ghana</option>
+    <option value="GI">Gibraltar</option>
+    <option value="GR">Greece</option>
+    <option value="GL">Greenland</option>
+    <option value="GD">Grenada</option>
+    <option value="GP">Guadeloupe</option>
+    <option value="GU">Guam</option>
+    <option value="GT">Guatemala</option>
+    <option value="GN">Guinea</option>
+    <option value="GW">Guinea-Bissau</option>
+    <option value="GY">Guyana</option>
+    <option value="HT">Haiti</option>
+    <option value="HN">Honduras</option>
+    <option value="HK">Hong Kong SAR China</option>
+    <option value="HU">Hungary</option>
+    <option value="IS">Iceland</option>
+    <option value="IN">India</option>
+    <option value="ID">Indonesia</option>
+    <option value="IR">Iran</option>
+    <option value="IQ">Iraq</option>
+    <option value="IE">Ireland</option>
+    <option value="IL">Israel</option>
+    <option value="IT">Italy</option>
+    <option value="JM">Jamaica</option>
+    <option value="JP">Japan</option>
+    <option value="JE">Jersey</option>
+    <option value="JO">Jordan</option>
+    <option value="KZ">Kazakhstan</option>
+    <option value="KE">Kenya</option>
+    <option value="KI">Kiribati</option>
+    <option value="KW">Kuwait</option>
+    <option value="KG">Kyrgyzstan</option>
+    <option value="LA">Laos</option>
+    <option value="LV">Latvia</option>
+    <option value="LB">Lebanon</option>
+    <option value="LS">Lesotho</option>
+    <option value="LR">Liberia</option>
+    <option value="LY">Libya</option>
+    <option value="LI">Liechtenstein</option>
+    <option value="LT">Lithuania</option>
+    <option value="LU">Luxembourg</option>
+    <option value="MO">Macau SAR China</option>
+    <option value="MK">Macedonia</option>
+    <option value="MG">Madagascar</option>
+    <option value="MW">Malawi</option>
+    <option value="MY">Malaysia</option>
+    <option value="MV">Maldives</option>
+    <option value="ML">Mali</option>
+    <option value="MT">Malta</option>
+    <option value="MH">Marshall Islands</option>
+    <option value="MQ">Martinique</option>
+    <option value="MR">Mauritania</option>
+    <option value="MU">Mauritius</option>
+    <option value="YT">Mayotte</option>
+    <option value="MX">Mexico</option>
+    <option value="FM">Micronesia</option>
+    <option value="MD">Moldova</option>
+    <option value="MC">Monaco</option>
+    <option value="MN">Mongolia</option>
+    <option value="MS">Montserrat</option>
+    <option value="MA">Morocco</option>
+    <option value="MZ">Mozambique</option>
+    <option value="MM">Myanmar (Burma)</option>
+    <option value="NA">Namibia</option>
+    <option value="NR">Nauru</option>
+    <option value="NP">Nepal</option>
+    <option value="NL">Netherlands</option>
+    <option value="NC">New Caledonia</option>
+    <option value="NZ">New Zealand</option>
+    <option value="NI">Nicaragua</option>
+    <option value="NE">Niger</option>
+    <option value="NG">Nigeria</option>
+    <option value="NU">Niue</option>
+    <option value="NF">Norfolk Island</option>
+    <option value="KP">North Korea</option>
+    <option value="MP">Northern Mariana Islands</option>
+    <option value="NO">Norway</option>
+    <option value="OM">Oman</option>
+    <option value="PK">Pakistan</option>
+    <option value="PW">Palau</option>
+    <option value="PS">Palestinian Territories</option>
+    <option value="PA">Panama</option>
+    <option value="PG">Papua New Guinea</option>
+    <option value="PY">Paraguay</option>
+    <option value="PE">Peru</option>
+    <option value="PH">Philippines</option>
+    <option value="PL">Poland</option>
+    <option value="PT">Portugal</option>
+    <option value="PR">Puerto Rico</option>
+    <option value="QA">Qatar</option>
+    <option value="RE">Réunion</option>
+    <option value="RO">Romania</option>
+    <option value="RU">Russia</option>
+    <option value="RW">Rwanda</option>
+    <option value="WS">Samoa</option>
+    <option value="SM">San Marino</option>
+    <option value="ST">São Tomé &amp; Príncipe</option>
+    <option value="SA">Saudi Arabia</option>
+    <option value="SN">Senegal</option>
+    <option value="RS">Serbia</option>
+    <option value="SC">Seychelles</option>
+    <option value="SL">Sierra Leone</option>
+    <option value="SG">Singapore</option>
+    <option value="SK">Slovakia</option>
+    <option value="SI">Slovenia</option>
+    <option value="SB">Solomon Islands</option>
+    <option value="SO">Somalia</option>
+    <option value="ZA">South Africa</option>
+    <option value="GS">South Georgia &amp; South Sandwich Islands</option>
+    <option value="KR">South Korea</option>
+    <option value="ES">Spain</option>
+    <option value="LK">Sri Lanka</option>
+    <option value="SH">St. Helena</option>
+    <option value="KN">St. Kitts &amp; Nevis</option>
+    <option value="LC">St. Lucia</option>
+    <option value="PM">St. Pierre &amp; Miquelon</option>
+    <option value="VC">St. Vincent &amp; Grenadines</option>
+    <option value="SD">Sudan</option>
+    <option value="SR">Suriname</option>
+    <option value="SJ">Svalbard &amp; Jan Mayen</option>
+    <option value="SZ">Swaziland</option>
+    <option value="SE">Sweden</option>
+    <option value="CH">Switzerland</option>
+    <option value="SY">Syria</option>
+    <option value="TW">Taiwan</option>
+    <option value="TJ">Tajikistan</option>
+    <option value="TZ">Tanzania</option>
+    <option value="TH">Thailand</option>
+    <option value="TG">Togo</option>
+    <option value="TK">Tokelau</option>
+    <option value="TO">Tonga</option>
+    <option value="TT">Trinidad &amp; Tobago</option>
+    <option value="TN">Tunisia</option>
+    <option value="TR">Turkey</option>
+    <option value="TM">Turkmenistan</option>
+    <option value="TC">Turks &amp; Caicos Islands</option>
+    <option value="TV">Tuvalu</option>
+    <option value="VI">U.S. Virgin Islands</option>
+    <option value="UG">Uganda</option>
+    <option value="UA">Ukraine</option>
+    <option value="AE">United Arab Emirates</option>
+    <option value="GB">United Kingdom</option>
+    <option value="US">United States</option>
+    <option value="UY">Uruguay</option>
+    <option value="UZ">Uzbekistan</option>
+    <option value="VU">Vanuatu</option>
+    <option value="VA">Vatican City</option>
+    <option value="VE">Venezuela</option>
+    <option value="VN">Vietnam</option>
+    <option value="WF">Wallis &amp; Futuna</option>
+    <option value="EH">Western Sahara</option>
+    <option value="YE">Yemen</option>
+    <option value="ZM">Zambia</option>
+    <option value="ZW">Zimbabwe</option>
 </select>
+
+<br><br><br><br>
 
 <!-- the same select with search-select enabled automatically (using class searchselect-js on the select element) -->
+<!-- added a data-prefix to the item to add a flag before the country name -->
+SEARCH SELECT AUTO-LOADED<br>
+<label for="select1">Select a value</label><br>
 <select id="select1" class="searchselect-js">
-    <option value="0">VALUE 0</option>
-    <option value="1">VALUE 1</option>
-    <option value="2">VALUE 2</option>
-    <option value="3">VALUE 3</option>
-    <option value="4">VALUE 4</option>
-    <option value="5">VALUE 5</option>
-    <option value="6">VALUE 6</option>
-    <option value="7">VALUE 7</option>
-    <option value="8">VALUE 8</option>
-    <option value="9">VALUE 9</option>
+    <!-- DATA-PREFIX => urlencode( '<img class="flagimg" src="https://flagicons.lipis.dev/flags/4x3/{ISOPAYS}.svg" alt=""/>' )  -->
+    <!-- NOTE THAT YOU CAN ADD A data-suffix TOO -->
+    <option value="AF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faf.svg%22+alt%3D%22%22%2F%3E">Afghanistan</option>
+    <option value="AL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fal.svg%22+alt%3D%22%22%2F%3E">Albania</option>
+    <option value="DZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdz.svg%22+alt%3D%22%22%2F%3E">Algeria</option>
+    <option value="AS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fas.svg%22+alt%3D%22%22%2F%3E">American Samoa</option>
+    <option value="AD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fad.svg%22+alt%3D%22%22%2F%3E">Andorra</option>
+    <option value="AO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fao.svg%22+alt%3D%22%22%2F%3E">Angola</option>
+    <option value="AI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fai.svg%22+alt%3D%22%22%2F%3E">Anguilla</option>
+    <option value="AQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faq.svg%22+alt%3D%22%22%2F%3E">Antarctica</option>
+    <option value="AG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fag.svg%22+alt%3D%22%22%2F%3E">Antigua &amp; Barbuda</option>
+    <option value="AR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Far.svg%22+alt%3D%22%22%2F%3E">Argentina</option>
+    <option value="AM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fam.svg%22+alt%3D%22%22%2F%3E">Armenia</option>
+    <option value="AW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faw.svg%22+alt%3D%22%22%2F%3E">Aruba</option>
+    <option value="AU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fau.svg%22+alt%3D%22%22%2F%3E">Australia</option>
+    <option value="AT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fat.svg%22+alt%3D%22%22%2F%3E">Austria</option>
+    <option value="AZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faz.svg%22+alt%3D%22%22%2F%3E">Azerbaijan</option>
+    <option value="BS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbs.svg%22+alt%3D%22%22%2F%3E">Bahamas</option>
+    <option value="BH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbh.svg%22+alt%3D%22%22%2F%3E">Bahrain</option>
+    <option value="BD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbd.svg%22+alt%3D%22%22%2F%3E">Bangladesh</option>
+    <option value="BB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbb.svg%22+alt%3D%22%22%2F%3E">Barbados</option>
+    <option value="BY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fby.svg%22+alt%3D%22%22%2F%3E">Belarus</option>
+    <option value="BE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbe.svg%22+alt%3D%22%22%2F%3E">Belgium</option>
+    <option value="BZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbz.svg%22+alt%3D%22%22%2F%3E">Belize</option>
+    <option value="BJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbj.svg%22+alt%3D%22%22%2F%3E">Benin</option>
+    <option value="BM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbm.svg%22+alt%3D%22%22%2F%3E">Bermuda</option>
+    <option value="BT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbt.svg%22+alt%3D%22%22%2F%3E">Bhutan</option>
+    <option value="BO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbo.svg%22+alt%3D%22%22%2F%3E">Bolivia</option>
+    <option value="BA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fba.svg%22+alt%3D%22%22%2F%3E">Bosnia &amp; Herzegovina</option>
+    <option value="BW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbw.svg%22+alt%3D%22%22%2F%3E">Botswana</option>
+    <option value="BR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbr.svg%22+alt%3D%22%22%2F%3E">Brazil</option>
+    <option value="IO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fio.svg%22+alt%3D%22%22%2F%3E">British Indian Ocean Territory</option>
+    <option value="VG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvg.svg%22+alt%3D%22%22%2F%3E">British Virgin Islands</option>
+    <option value="BN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbn.svg%22+alt%3D%22%22%2F%3E">Brunei</option>
+    <option value="BG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbg.svg%22+alt%3D%22%22%2F%3E">Bulgaria</option>
+    <option value="BF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbf.svg%22+alt%3D%22%22%2F%3E">Burkina Faso</option>
+    <option value="BI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbi.svg%22+alt%3D%22%22%2F%3E">Burundi</option>
+    <option value="KH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkh.svg%22+alt%3D%22%22%2F%3E">Cambodia</option>
+    <option value="CM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcm.svg%22+alt%3D%22%22%2F%3E">Cameroon</option>
+    <option value="CA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fca.svg%22+alt%3D%22%22%2F%3E">Canada</option>
+    <option value="CV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcv.svg%22+alt%3D%22%22%2F%3E">Cape Verde</option>
+    <option value="KY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fky.svg%22+alt%3D%22%22%2F%3E">Cayman Islands</option>
+    <option value="CF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcf.svg%22+alt%3D%22%22%2F%3E">Central African Republic</option>
+    <option value="TD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftd.svg%22+alt%3D%22%22%2F%3E">Chad</option>
+    <option value="CL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcl.svg%22+alt%3D%22%22%2F%3E">Chile</option>
+    <option value="CN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcn.svg%22+alt%3D%22%22%2F%3E">China</option>
+    <option value="CX" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcx.svg%22+alt%3D%22%22%2F%3E">Christmas Island</option>
+    <option value="CC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcc.svg%22+alt%3D%22%22%2F%3E">Cocos (Keeling) Islands</option>
+    <option value="CO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fco.svg%22+alt%3D%22%22%2F%3E">Colombia</option>
+    <option value="KM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkm.svg%22+alt%3D%22%22%2F%3E">Comoros</option>
+    <option value="CG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcg.svg%22+alt%3D%22%22%2F%3E">Congo - Brazzaville</option>
+    <option value="CD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcd.svg%22+alt%3D%22%22%2F%3E">Congo - Kinshasa</option>
+    <option value="CK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fck.svg%22+alt%3D%22%22%2F%3E">Cook Islands</option>
+    <option value="CR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcr.svg%22+alt%3D%22%22%2F%3E">Costa Rica</option>
+    <option value="CI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fci.svg%22+alt%3D%22%22%2F%3E">Côte d’Ivoire</option>
+    <option value="HR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhr.svg%22+alt%3D%22%22%2F%3E">Croatia</option>
+    <option value="CU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcu.svg%22+alt%3D%22%22%2F%3E">Cuba</option>
+    <option value="CY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcy.svg%22+alt%3D%22%22%2F%3E">Cyprus</option>
+    <option value="CZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcz.svg%22+alt%3D%22%22%2F%3E">Czechia</option>
+    <option value="DK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdk.svg%22+alt%3D%22%22%2F%3E">Denmark</option>
+    <option value="DJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdj.svg%22+alt%3D%22%22%2F%3E">Djibouti</option>
+    <option value="DM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdm.svg%22+alt%3D%22%22%2F%3E">Dominica</option>
+    <option value="DO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdo.svg%22+alt%3D%22%22%2F%3E">Dominican Republic</option>
+    <option value="EC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fec.svg%22+alt%3D%22%22%2F%3E">Ecuador</option>
+    <option value="EG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Feg.svg%22+alt%3D%22%22%2F%3E">Egypt</option>
+    <option value="SV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsv.svg%22+alt%3D%22%22%2F%3E">El Salvador</option>
+    <option value="GQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgq.svg%22+alt%3D%22%22%2F%3E">Equatorial Guinea</option>
+    <option value="ER" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fer.svg%22+alt%3D%22%22%2F%3E">Eritrea</option>
+    <option value="EE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fee.svg%22+alt%3D%22%22%2F%3E">Estonia</option>
+    <option value="ET" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fet.svg%22+alt%3D%22%22%2F%3E">Ethiopia</option>
+    <option value="FK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffk.svg%22+alt%3D%22%22%2F%3E">Falkland Islands</option>
+    <option value="FO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffo.svg%22+alt%3D%22%22%2F%3E">Faroe Islands</option>
+    <option value="FJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffj.svg%22+alt%3D%22%22%2F%3E">Fiji</option>
+    <option value="FI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffi.svg%22+alt%3D%22%22%2F%3E">Finland</option>
+    <option value="FR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffr.svg%22+alt%3D%22%22%2F%3E">France</option>
+    <option value="GF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgf.svg%22+alt%3D%22%22%2F%3E">French Guiana</option>
+    <option value="PF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpf.svg%22+alt%3D%22%22%2F%3E">French Polynesia</option>
+    <option value="GA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fga.svg%22+alt%3D%22%22%2F%3E">Gabon</option>
+    <option value="GM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgm.svg%22+alt%3D%22%22%2F%3E">Gambia</option>
+    <option value="GE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fge.svg%22+alt%3D%22%22%2F%3E">Georgia</option>
+    <option value="DE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fde.svg%22+alt%3D%22%22%2F%3E">Germany</option>
+    <option value="GH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgh.svg%22+alt%3D%22%22%2F%3E">Ghana</option>
+    <option value="GI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgi.svg%22+alt%3D%22%22%2F%3E">Gibraltar</option>
+    <option value="GR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgr.svg%22+alt%3D%22%22%2F%3E">Greece</option>
+    <option value="GL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgl.svg%22+alt%3D%22%22%2F%3E">Greenland</option>
+    <option value="GD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgd.svg%22+alt%3D%22%22%2F%3E">Grenada</option>
+    <option value="GP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgp.svg%22+alt%3D%22%22%2F%3E">Guadeloupe</option>
+    <option value="GU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgu.svg%22+alt%3D%22%22%2F%3E">Guam</option>
+    <option value="GT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgt.svg%22+alt%3D%22%22%2F%3E">Guatemala</option>
+    <option value="GN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgn.svg%22+alt%3D%22%22%2F%3E">Guinea</option>
+    <option value="GW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgw.svg%22+alt%3D%22%22%2F%3E">Guinea-Bissau</option>
+    <option value="GY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgy.svg%22+alt%3D%22%22%2F%3E">Guyana</option>
+    <option value="HT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fht.svg%22+alt%3D%22%22%2F%3E">Haiti</option>
+    <option value="HN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhn.svg%22+alt%3D%22%22%2F%3E">Honduras</option>
+    <option value="HK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhk.svg%22+alt%3D%22%22%2F%3E">Hong Kong SAR China</option>
+    <option value="HU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhu.svg%22+alt%3D%22%22%2F%3E">Hungary</option>
+    <option value="IS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fis.svg%22+alt%3D%22%22%2F%3E">Iceland</option>
+    <option value="IN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fin.svg%22+alt%3D%22%22%2F%3E">India</option>
+    <option value="ID" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fid.svg%22+alt%3D%22%22%2F%3E">Indonesia</option>
+    <option value="IR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fir.svg%22+alt%3D%22%22%2F%3E">Iran</option>
+    <option value="IQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fiq.svg%22+alt%3D%22%22%2F%3E">Iraq</option>
+    <option value="IE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fie.svg%22+alt%3D%22%22%2F%3E">Ireland</option>
+    <option value="IL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fil.svg%22+alt%3D%22%22%2F%3E">Israel</option>
+    <option value="IT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fit.svg%22+alt%3D%22%22%2F%3E">Italy</option>
+    <option value="JM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjm.svg%22+alt%3D%22%22%2F%3E">Jamaica</option>
+    <option value="JP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjp.svg%22+alt%3D%22%22%2F%3E">Japan</option>
+    <option value="JE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fje.svg%22+alt%3D%22%22%2F%3E">Jersey</option>
+    <option value="JO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjo.svg%22+alt%3D%22%22%2F%3E">Jordan</option>
+    <option value="KZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkz.svg%22+alt%3D%22%22%2F%3E">Kazakhstan</option>
+    <option value="KE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fke.svg%22+alt%3D%22%22%2F%3E">Kenya</option>
+    <option value="KI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fki.svg%22+alt%3D%22%22%2F%3E">Kiribati</option>
+    <option value="KW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkw.svg%22+alt%3D%22%22%2F%3E">Kuwait</option>
+    <option value="KG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkg.svg%22+alt%3D%22%22%2F%3E">Kyrgyzstan</option>
+    <option value="LA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fla.svg%22+alt%3D%22%22%2F%3E">Laos</option>
+    <option value="LV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flv.svg%22+alt%3D%22%22%2F%3E">Latvia</option>
+    <option value="LB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flb.svg%22+alt%3D%22%22%2F%3E">Lebanon</option>
+    <option value="LS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fls.svg%22+alt%3D%22%22%2F%3E">Lesotho</option>
+    <option value="LR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flr.svg%22+alt%3D%22%22%2F%3E">Liberia</option>
+    <option value="LY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fly.svg%22+alt%3D%22%22%2F%3E">Libya</option>
+    <option value="LI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fli.svg%22+alt%3D%22%22%2F%3E">Liechtenstein</option>
+    <option value="LT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flt.svg%22+alt%3D%22%22%2F%3E">Lithuania</option>
+    <option value="LU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flu.svg%22+alt%3D%22%22%2F%3E">Luxembourg</option>
+    <option value="MO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmo.svg%22+alt%3D%22%22%2F%3E">Macau SAR China</option>
+    <option value="MK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmk.svg%22+alt%3D%22%22%2F%3E">Macedonia</option>
+    <option value="MG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmg.svg%22+alt%3D%22%22%2F%3E">Madagascar</option>
+    <option value="MW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmw.svg%22+alt%3D%22%22%2F%3E">Malawi</option>
+    <option value="MY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmy.svg%22+alt%3D%22%22%2F%3E">Malaysia</option>
+    <option value="MV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmv.svg%22+alt%3D%22%22%2F%3E">Maldives</option>
+    <option value="ML" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fml.svg%22+alt%3D%22%22%2F%3E">Mali</option>
+    <option value="MT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmt.svg%22+alt%3D%22%22%2F%3E">Malta</option>
+    <option value="MH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmh.svg%22+alt%3D%22%22%2F%3E">Marshall Islands</option>
+    <option value="MQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmq.svg%22+alt%3D%22%22%2F%3E">Martinique</option>
+    <option value="MR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmr.svg%22+alt%3D%22%22%2F%3E">Mauritania</option>
+    <option value="MU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmu.svg%22+alt%3D%22%22%2F%3E">Mauritius</option>
+    <option value="YT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fyt.svg%22+alt%3D%22%22%2F%3E">Mayotte</option>
+    <option value="MX" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmx.svg%22+alt%3D%22%22%2F%3E">Mexico</option>
+    <option value="FM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffm.svg%22+alt%3D%22%22%2F%3E">Micronesia</option>
+    <option value="MD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmd.svg%22+alt%3D%22%22%2F%3E">Moldova</option>
+    <option value="MC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmc.svg%22+alt%3D%22%22%2F%3E">Monaco</option>
+    <option value="MN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmn.svg%22+alt%3D%22%22%2F%3E">Mongolia</option>
+    <option value="MS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fms.svg%22+alt%3D%22%22%2F%3E">Montserrat</option>
+    <option value="MA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fma.svg%22+alt%3D%22%22%2F%3E">Morocco</option>
+    <option value="MZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmz.svg%22+alt%3D%22%22%2F%3E">Mozambique</option>
+    <option value="MM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmm.svg%22+alt%3D%22%22%2F%3E">Myanmar (Burma)</option>
+    <option value="NA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fna.svg%22+alt%3D%22%22%2F%3E">Namibia</option>
+    <option value="NR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnr.svg%22+alt%3D%22%22%2F%3E">Nauru</option>
+    <option value="NP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnp.svg%22+alt%3D%22%22%2F%3E">Nepal</option>
+    <option value="NL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnl.svg%22+alt%3D%22%22%2F%3E">Netherlands</option>
+    <option value="NC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnc.svg%22+alt%3D%22%22%2F%3E">New Caledonia</option>
+    <option value="NZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnz.svg%22+alt%3D%22%22%2F%3E">New Zealand</option>
+    <option value="NI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fni.svg%22+alt%3D%22%22%2F%3E">Nicaragua</option>
+    <option value="NE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fne.svg%22+alt%3D%22%22%2F%3E">Niger</option>
+    <option value="NG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fng.svg%22+alt%3D%22%22%2F%3E">Nigeria</option>
+    <option value="NU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnu.svg%22+alt%3D%22%22%2F%3E">Niue</option>
+    <option value="NF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnf.svg%22+alt%3D%22%22%2F%3E">Norfolk Island</option>
+    <option value="KP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkp.svg%22+alt%3D%22%22%2F%3E">North Korea</option>
+    <option value="MP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmp.svg%22+alt%3D%22%22%2F%3E">Northern Mariana Islands</option>
+    <option value="NO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fno.svg%22+alt%3D%22%22%2F%3E">Norway</option>
+    <option value="OM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fom.svg%22+alt%3D%22%22%2F%3E">Oman</option>
+    <option value="PK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpk.svg%22+alt%3D%22%22%2F%3E">Pakistan</option>
+    <option value="PW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpw.svg%22+alt%3D%22%22%2F%3E">Palau</option>
+    <option value="PS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fps.svg%22+alt%3D%22%22%2F%3E">Palestinian Territories</option>
+    <option value="PA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpa.svg%22+alt%3D%22%22%2F%3E">Panama</option>
+    <option value="PG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpg.svg%22+alt%3D%22%22%2F%3E">Papua New Guinea</option>
+    <option value="PY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpy.svg%22+alt%3D%22%22%2F%3E">Paraguay</option>
+    <option value="PE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpe.svg%22+alt%3D%22%22%2F%3E">Peru</option>
+    <option value="PH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fph.svg%22+alt%3D%22%22%2F%3E">Philippines</option>
+    <option value="PL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpl.svg%22+alt%3D%22%22%2F%3E">Poland</option>
+    <option value="PT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpt.svg%22+alt%3D%22%22%2F%3E">Portugal</option>
+    <option value="PR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpr.svg%22+alt%3D%22%22%2F%3E">Puerto Rico</option>
+    <option value="QA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fqa.svg%22+alt%3D%22%22%2F%3E">Qatar</option>
+    <option value="RE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fre.svg%22+alt%3D%22%22%2F%3E">Réunion</option>
+    <option value="RO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fro.svg%22+alt%3D%22%22%2F%3E">Romania</option>
+    <option value="RU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fru.svg%22+alt%3D%22%22%2F%3E">Russia</option>
+    <option value="RW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Frw.svg%22+alt%3D%22%22%2F%3E">Rwanda</option>
+    <option value="WS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fws.svg%22+alt%3D%22%22%2F%3E">Samoa</option>
+    <option value="SM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsm.svg%22+alt%3D%22%22%2F%3E">San Marino</option>
+    <option value="ST" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fst.svg%22+alt%3D%22%22%2F%3E">São Tomé &amp; Príncipe</option>
+    <option value="SA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsa.svg%22+alt%3D%22%22%2F%3E">Saudi Arabia</option>
+    <option value="SN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsn.svg%22+alt%3D%22%22%2F%3E">Senegal</option>
+    <option value="RS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Frs.svg%22+alt%3D%22%22%2F%3E">Serbia</option>
+    <option value="SC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsc.svg%22+alt%3D%22%22%2F%3E">Seychelles</option>
+    <option value="SL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsl.svg%22+alt%3D%22%22%2F%3E">Sierra Leone</option>
+    <option value="SG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsg.svg%22+alt%3D%22%22%2F%3E">Singapore</option>
+    <option value="SK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsk.svg%22+alt%3D%22%22%2F%3E">Slovakia</option>
+    <option value="SI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsi.svg%22+alt%3D%22%22%2F%3E">Slovenia</option>
+    <option value="SB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsb.svg%22+alt%3D%22%22%2F%3E">Solomon Islands</option>
+    <option value="SO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fso.svg%22+alt%3D%22%22%2F%3E">Somalia</option>
+    <option value="ZA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fza.svg%22+alt%3D%22%22%2F%3E">South Africa</option>
+    <option value="GS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgs.svg%22+alt%3D%22%22%2F%3E">South Georgia &amp; South Sandwich Islands</option>
+    <option value="KR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkr.svg%22+alt%3D%22%22%2F%3E">South Korea</option>
+    <option value="ES" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fes.svg%22+alt%3D%22%22%2F%3E">Spain</option>
+    <option value="LK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flk.svg%22+alt%3D%22%22%2F%3E">Sri Lanka</option>
+    <option value="SH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsh.svg%22+alt%3D%22%22%2F%3E">St. Helena</option>
+    <option value="KN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkn.svg%22+alt%3D%22%22%2F%3E">St. Kitts &amp; Nevis</option>
+    <option value="LC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flc.svg%22+alt%3D%22%22%2F%3E">St. Lucia</option>
+    <option value="PM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpm.svg%22+alt%3D%22%22%2F%3E">St. Pierre &amp; Miquelon</option>
+    <option value="VC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvc.svg%22+alt%3D%22%22%2F%3E">St. Vincent &amp; Grenadines</option>
+    <option value="SD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsd.svg%22+alt%3D%22%22%2F%3E">Sudan</option>
+    <option value="SR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsr.svg%22+alt%3D%22%22%2F%3E">Suriname</option>
+    <option value="SJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsj.svg%22+alt%3D%22%22%2F%3E">Svalbard &amp; Jan Mayen</option>
+    <option value="SZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsz.svg%22+alt%3D%22%22%2F%3E">Swaziland</option>
+    <option value="SE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fse.svg%22+alt%3D%22%22%2F%3E">Sweden</option>
+    <option value="CH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fch.svg%22+alt%3D%22%22%2F%3E">Switzerland</option>
+    <option value="SY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsy.svg%22+alt%3D%22%22%2F%3E">Syria</option>
+    <option value="TW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftw.svg%22+alt%3D%22%22%2F%3E">Taiwan</option>
+    <option value="TJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftj.svg%22+alt%3D%22%22%2F%3E">Tajikistan</option>
+    <option value="TZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftz.svg%22+alt%3D%22%22%2F%3E">Tanzania</option>
+    <option value="TH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fth.svg%22+alt%3D%22%22%2F%3E">Thailand</option>
+    <option value="TG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftg.svg%22+alt%3D%22%22%2F%3E">Togo</option>
+    <option value="TK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftk.svg%22+alt%3D%22%22%2F%3E">Tokelau</option>
+    <option value="TO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fto.svg%22+alt%3D%22%22%2F%3E">Tonga</option>
+    <option value="TT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftt.svg%22+alt%3D%22%22%2F%3E">Trinidad &amp; Tobago</option>
+    <option value="TN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftn.svg%22+alt%3D%22%22%2F%3E">Tunisia</option>
+    <option value="TR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftr.svg%22+alt%3D%22%22%2F%3E">Turkey</option>
+    <option value="TM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftm.svg%22+alt%3D%22%22%2F%3E">Turkmenistan</option>
+    <option value="TC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftc.svg%22+alt%3D%22%22%2F%3E">Turks &amp; Caicos Islands</option>
+    <option value="TV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftv.svg%22+alt%3D%22%22%2F%3E">Tuvalu</option>
+    <option value="VI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvi.svg%22+alt%3D%22%22%2F%3E">U.S. Virgin Islands</option>
+    <option value="UG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fug.svg%22+alt%3D%22%22%2F%3E">Uganda</option>
+    <option value="UA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fua.svg%22+alt%3D%22%22%2F%3E">Ukraine</option>
+    <option value="AE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fae.svg%22+alt%3D%22%22%2F%3E">United Arab Emirates</option>
+    <option value="GB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgb.svg%22+alt%3D%22%22%2F%3E">United Kingdom</option>
+    <option value="US" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fus.svg%22+alt%3D%22%22%2F%3E">United States</option>
+    <option value="UY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fuy.svg%22+alt%3D%22%22%2F%3E">Uruguay</option>
+    <option value="UZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fuz.svg%22+alt%3D%22%22%2F%3E">Uzbekistan</option>
+    <option value="VU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvu.svg%22+alt%3D%22%22%2F%3E">Vanuatu</option>
+    <option value="VA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fva.svg%22+alt%3D%22%22%2F%3E">Vatican City</option>
+    <option value="VE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fve.svg%22+alt%3D%22%22%2F%3E">Venezuela</option>
+    <option value="VN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvn.svg%22+alt%3D%22%22%2F%3E">Vietnam</option>
+    <option value="WF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fwf.svg%22+alt%3D%22%22%2F%3E">Wallis &amp; Futuna</option>
+    <option value="EH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Feh.svg%22+alt%3D%22%22%2F%3E">Western Sahara</option>
+    <option value="YE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fye.svg%22+alt%3D%22%22%2F%3E">Yemen</option>
+    <option value="ZM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fzm.svg%22+alt%3D%22%22%2F%3E">Zambia</option>
+    <option value="ZW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fzw.svg%22+alt%3D%22%22%2F%3E">Zimbabwe</option>
 </select>
 
+<br><br><br><br>
+
 <!-- the same select with search-select enabled but initialised using javascript -->
+SEARCH SELECT LOADED USING JS<br>
++ OPENNED AT PAGE LAUNCH USING JS<br>
+<label for="select2">Select a value</label><br>
 <select id="select2">
-    <option value="0">VALUE 0</option>
-    <option value="1">VALUE 1</option>
-    <option value="2">VALUE 2</option>
-    <option value="3">VALUE 3</option>
-    <option value="4">VALUE 4</option>
-    <option value="5">VALUE 5</option>
-    <option value="6">VALUE 6</option>
-    <option value="7">VALUE 7</option>
-    <option value="8">VALUE 8</option>
-    <option value="9">VALUE 9</option>
+    <!-- DATA-PREFIX => urlencode( '<img class="flagimg" src="https://flagicons.lipis.dev/flags/4x3/{ISOPAYS}.svg" alt=""/>' )  -->
+    <option value="AF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faf.svg%22+alt%3D%22%22%2F%3E">Afghanistan</option>
+    <option value="AL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fal.svg%22+alt%3D%22%22%2F%3E">Albania</option>
+    <option value="DZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdz.svg%22+alt%3D%22%22%2F%3E">Algeria</option>
+    <option value="AS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fas.svg%22+alt%3D%22%22%2F%3E">American Samoa</option>
+    <option value="AD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fad.svg%22+alt%3D%22%22%2F%3E">Andorra</option>
+    <option value="AO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fao.svg%22+alt%3D%22%22%2F%3E">Angola</option>
+    <option value="AI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fai.svg%22+alt%3D%22%22%2F%3E">Anguilla</option>
+    <option value="AQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faq.svg%22+alt%3D%22%22%2F%3E">Antarctica</option>
+    <option value="AG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fag.svg%22+alt%3D%22%22%2F%3E">Antigua &amp; Barbuda</option>
+    <option value="AR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Far.svg%22+alt%3D%22%22%2F%3E">Argentina</option>
+    <option value="AM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fam.svg%22+alt%3D%22%22%2F%3E">Armenia</option>
+    <option value="AW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faw.svg%22+alt%3D%22%22%2F%3E">Aruba</option>
+    <option value="AU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fau.svg%22+alt%3D%22%22%2F%3E">Australia</option>
+    <option value="AT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fat.svg%22+alt%3D%22%22%2F%3E">Austria</option>
+    <option value="AZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faz.svg%22+alt%3D%22%22%2F%3E">Azerbaijan</option>
+    <option value="BS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbs.svg%22+alt%3D%22%22%2F%3E">Bahamas</option>
+    <option value="BH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbh.svg%22+alt%3D%22%22%2F%3E">Bahrain</option>
+    <option value="BD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbd.svg%22+alt%3D%22%22%2F%3E">Bangladesh</option>
+    <option value="BB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbb.svg%22+alt%3D%22%22%2F%3E">Barbados</option>
+    <option value="BY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fby.svg%22+alt%3D%22%22%2F%3E">Belarus</option>
+    <option value="BE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbe.svg%22+alt%3D%22%22%2F%3E">Belgium</option>
+    <option value="BZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbz.svg%22+alt%3D%22%22%2F%3E">Belize</option>
+    <option value="BJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbj.svg%22+alt%3D%22%22%2F%3E">Benin</option>
+    <option value="BM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbm.svg%22+alt%3D%22%22%2F%3E">Bermuda</option>
+    <option value="BT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbt.svg%22+alt%3D%22%22%2F%3E">Bhutan</option>
+    <option value="BO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbo.svg%22+alt%3D%22%22%2F%3E">Bolivia</option>
+    <option value="BA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fba.svg%22+alt%3D%22%22%2F%3E">Bosnia &amp; Herzegovina</option>
+    <option value="BW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbw.svg%22+alt%3D%22%22%2F%3E">Botswana</option>
+    <option value="BR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbr.svg%22+alt%3D%22%22%2F%3E">Brazil</option>
+    <option value="IO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fio.svg%22+alt%3D%22%22%2F%3E">British Indian Ocean Territory</option>
+    <option value="VG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvg.svg%22+alt%3D%22%22%2F%3E">British Virgin Islands</option>
+    <option value="BN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbn.svg%22+alt%3D%22%22%2F%3E">Brunei</option>
+    <option value="BG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbg.svg%22+alt%3D%22%22%2F%3E">Bulgaria</option>
+    <option value="BF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbf.svg%22+alt%3D%22%22%2F%3E">Burkina Faso</option>
+    <option value="BI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbi.svg%22+alt%3D%22%22%2F%3E">Burundi</option>
+    <option value="KH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkh.svg%22+alt%3D%22%22%2F%3E">Cambodia</option>
+    <option value="CM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcm.svg%22+alt%3D%22%22%2F%3E">Cameroon</option>
+    <option value="CA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fca.svg%22+alt%3D%22%22%2F%3E">Canada</option>
+    <option value="CV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcv.svg%22+alt%3D%22%22%2F%3E">Cape Verde</option>
+    <option value="KY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fky.svg%22+alt%3D%22%22%2F%3E">Cayman Islands</option>
+    <option value="CF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcf.svg%22+alt%3D%22%22%2F%3E">Central African Republic</option>
+    <option value="TD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftd.svg%22+alt%3D%22%22%2F%3E">Chad</option>
+    <option value="CL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcl.svg%22+alt%3D%22%22%2F%3E">Chile</option>
+    <option value="CN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcn.svg%22+alt%3D%22%22%2F%3E">China</option>
+    <option value="CX" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcx.svg%22+alt%3D%22%22%2F%3E">Christmas Island</option>
+    <option value="CC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcc.svg%22+alt%3D%22%22%2F%3E">Cocos (Keeling) Islands</option>
+    <option value="CO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fco.svg%22+alt%3D%22%22%2F%3E">Colombia</option>
+    <option value="KM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkm.svg%22+alt%3D%22%22%2F%3E">Comoros</option>
+    <option value="CG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcg.svg%22+alt%3D%22%22%2F%3E">Congo - Brazzaville</option>
+    <option value="CD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcd.svg%22+alt%3D%22%22%2F%3E">Congo - Kinshasa</option>
+    <option value="CK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fck.svg%22+alt%3D%22%22%2F%3E">Cook Islands</option>
+    <option value="CR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcr.svg%22+alt%3D%22%22%2F%3E">Costa Rica</option>
+    <option value="CI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fci.svg%22+alt%3D%22%22%2F%3E">Côte d’Ivoire</option>
+    <option value="HR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhr.svg%22+alt%3D%22%22%2F%3E">Croatia</option>
+    <option value="CU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcu.svg%22+alt%3D%22%22%2F%3E">Cuba</option>
+    <option value="CY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcy.svg%22+alt%3D%22%22%2F%3E">Cyprus</option>
+    <option value="CZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcz.svg%22+alt%3D%22%22%2F%3E">Czechia</option>
+    <option value="DK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdk.svg%22+alt%3D%22%22%2F%3E">Denmark</option>
+    <option value="DJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdj.svg%22+alt%3D%22%22%2F%3E">Djibouti</option>
+    <option value="DM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdm.svg%22+alt%3D%22%22%2F%3E">Dominica</option>
+    <option value="DO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdo.svg%22+alt%3D%22%22%2F%3E">Dominican Republic</option>
+    <option value="EC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fec.svg%22+alt%3D%22%22%2F%3E">Ecuador</option>
+    <option value="EG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Feg.svg%22+alt%3D%22%22%2F%3E">Egypt</option>
+    <option value="SV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsv.svg%22+alt%3D%22%22%2F%3E">El Salvador</option>
+    <option value="GQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgq.svg%22+alt%3D%22%22%2F%3E">Equatorial Guinea</option>
+    <option value="ER" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fer.svg%22+alt%3D%22%22%2F%3E">Eritrea</option>
+    <option value="EE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fee.svg%22+alt%3D%22%22%2F%3E">Estonia</option>
+    <option value="ET" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fet.svg%22+alt%3D%22%22%2F%3E">Ethiopia</option>
+    <option value="FK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffk.svg%22+alt%3D%22%22%2F%3E">Falkland Islands</option>
+    <option value="FO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffo.svg%22+alt%3D%22%22%2F%3E">Faroe Islands</option>
+    <option value="FJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffj.svg%22+alt%3D%22%22%2F%3E">Fiji</option>
+    <option value="FI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffi.svg%22+alt%3D%22%22%2F%3E">Finland</option>
+    <option value="FR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffr.svg%22+alt%3D%22%22%2F%3E">France</option>
+    <option value="GF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgf.svg%22+alt%3D%22%22%2F%3E">French Guiana</option>
+    <option value="PF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpf.svg%22+alt%3D%22%22%2F%3E">French Polynesia</option>
+    <option value="GA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fga.svg%22+alt%3D%22%22%2F%3E">Gabon</option>
+    <option value="GM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgm.svg%22+alt%3D%22%22%2F%3E">Gambia</option>
+    <option value="GE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fge.svg%22+alt%3D%22%22%2F%3E">Georgia</option>
+    <option value="DE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fde.svg%22+alt%3D%22%22%2F%3E">Germany</option>
+    <option value="GH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgh.svg%22+alt%3D%22%22%2F%3E">Ghana</option>
+    <option value="GI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgi.svg%22+alt%3D%22%22%2F%3E">Gibraltar</option>
+    <option value="GR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgr.svg%22+alt%3D%22%22%2F%3E">Greece</option>
+    <option value="GL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgl.svg%22+alt%3D%22%22%2F%3E">Greenland</option>
+    <option value="GD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgd.svg%22+alt%3D%22%22%2F%3E">Grenada</option>
+    <option value="GP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgp.svg%22+alt%3D%22%22%2F%3E">Guadeloupe</option>
+    <option value="GU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgu.svg%22+alt%3D%22%22%2F%3E">Guam</option>
+    <option value="GT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgt.svg%22+alt%3D%22%22%2F%3E">Guatemala</option>
+    <option value="GN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgn.svg%22+alt%3D%22%22%2F%3E">Guinea</option>
+    <option value="GW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgw.svg%22+alt%3D%22%22%2F%3E">Guinea-Bissau</option>
+    <option value="GY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgy.svg%22+alt%3D%22%22%2F%3E">Guyana</option>
+    <option value="HT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fht.svg%22+alt%3D%22%22%2F%3E">Haiti</option>
+    <option value="HN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhn.svg%22+alt%3D%22%22%2F%3E">Honduras</option>
+    <option value="HK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhk.svg%22+alt%3D%22%22%2F%3E">Hong Kong SAR China</option>
+    <option value="HU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhu.svg%22+alt%3D%22%22%2F%3E">Hungary</option>
+    <option value="IS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fis.svg%22+alt%3D%22%22%2F%3E">Iceland</option>
+    <option value="IN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fin.svg%22+alt%3D%22%22%2F%3E">India</option>
+    <option value="ID" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fid.svg%22+alt%3D%22%22%2F%3E">Indonesia</option>
+    <option value="IR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fir.svg%22+alt%3D%22%22%2F%3E">Iran</option>
+    <option value="IQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fiq.svg%22+alt%3D%22%22%2F%3E">Iraq</option>
+    <option value="IE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fie.svg%22+alt%3D%22%22%2F%3E">Ireland</option>
+    <option value="IL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fil.svg%22+alt%3D%22%22%2F%3E">Israel</option>
+    <option value="IT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fit.svg%22+alt%3D%22%22%2F%3E">Italy</option>
+    <option value="JM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjm.svg%22+alt%3D%22%22%2F%3E">Jamaica</option>
+    <option value="JP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjp.svg%22+alt%3D%22%22%2F%3E">Japan</option>
+    <option value="JE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fje.svg%22+alt%3D%22%22%2F%3E">Jersey</option>
+    <option value="JO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjo.svg%22+alt%3D%22%22%2F%3E">Jordan</option>
+    <option value="KZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkz.svg%22+alt%3D%22%22%2F%3E">Kazakhstan</option>
+    <option value="KE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fke.svg%22+alt%3D%22%22%2F%3E">Kenya</option>
+    <option value="KI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fki.svg%22+alt%3D%22%22%2F%3E">Kiribati</option>
+    <option value="KW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkw.svg%22+alt%3D%22%22%2F%3E">Kuwait</option>
+    <option value="KG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkg.svg%22+alt%3D%22%22%2F%3E">Kyrgyzstan</option>
+    <option value="LA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fla.svg%22+alt%3D%22%22%2F%3E">Laos</option>
+    <option value="LV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flv.svg%22+alt%3D%22%22%2F%3E">Latvia</option>
+    <option value="LB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flb.svg%22+alt%3D%22%22%2F%3E">Lebanon</option>
+    <option value="LS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fls.svg%22+alt%3D%22%22%2F%3E">Lesotho</option>
+    <option value="LR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flr.svg%22+alt%3D%22%22%2F%3E">Liberia</option>
+    <option value="LY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fly.svg%22+alt%3D%22%22%2F%3E">Libya</option>
+    <option value="LI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fli.svg%22+alt%3D%22%22%2F%3E">Liechtenstein</option>
+    <option value="LT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flt.svg%22+alt%3D%22%22%2F%3E">Lithuania</option>
+    <option value="LU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flu.svg%22+alt%3D%22%22%2F%3E">Luxembourg</option>
+    <option value="MO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmo.svg%22+alt%3D%22%22%2F%3E">Macau SAR China</option>
+    <option value="MK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmk.svg%22+alt%3D%22%22%2F%3E">Macedonia</option>
+    <option value="MG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmg.svg%22+alt%3D%22%22%2F%3E">Madagascar</option>
+    <option value="MW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmw.svg%22+alt%3D%22%22%2F%3E">Malawi</option>
+    <option value="MY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmy.svg%22+alt%3D%22%22%2F%3E">Malaysia</option>
+    <option value="MV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmv.svg%22+alt%3D%22%22%2F%3E">Maldives</option>
+    <option value="ML" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fml.svg%22+alt%3D%22%22%2F%3E">Mali</option>
+    <option value="MT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmt.svg%22+alt%3D%22%22%2F%3E">Malta</option>
+    <option value="MH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmh.svg%22+alt%3D%22%22%2F%3E">Marshall Islands</option>
+    <option value="MQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmq.svg%22+alt%3D%22%22%2F%3E">Martinique</option>
+    <option value="MR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmr.svg%22+alt%3D%22%22%2F%3E">Mauritania</option>
+    <option value="MU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmu.svg%22+alt%3D%22%22%2F%3E">Mauritius</option>
+    <option value="YT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fyt.svg%22+alt%3D%22%22%2F%3E">Mayotte</option>
+    <option value="MX" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmx.svg%22+alt%3D%22%22%2F%3E">Mexico</option>
+    <option value="FM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffm.svg%22+alt%3D%22%22%2F%3E">Micronesia</option>
+    <option value="MD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmd.svg%22+alt%3D%22%22%2F%3E">Moldova</option>
+    <option value="MC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmc.svg%22+alt%3D%22%22%2F%3E">Monaco</option>
+    <option value="MN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmn.svg%22+alt%3D%22%22%2F%3E">Mongolia</option>
+    <option value="MS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fms.svg%22+alt%3D%22%22%2F%3E">Montserrat</option>
+    <option value="MA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fma.svg%22+alt%3D%22%22%2F%3E">Morocco</option>
+    <option value="MZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmz.svg%22+alt%3D%22%22%2F%3E">Mozambique</option>
+    <option value="MM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmm.svg%22+alt%3D%22%22%2F%3E">Myanmar (Burma)</option>
+    <option value="NA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fna.svg%22+alt%3D%22%22%2F%3E">Namibia</option>
+    <option value="NR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnr.svg%22+alt%3D%22%22%2F%3E">Nauru</option>
+    <option value="NP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnp.svg%22+alt%3D%22%22%2F%3E">Nepal</option>
+    <option value="NL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnl.svg%22+alt%3D%22%22%2F%3E">Netherlands</option>
+    <option value="NC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnc.svg%22+alt%3D%22%22%2F%3E">New Caledonia</option>
+    <option value="NZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnz.svg%22+alt%3D%22%22%2F%3E">New Zealand</option>
+    <option value="NI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fni.svg%22+alt%3D%22%22%2F%3E">Nicaragua</option>
+    <option value="NE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fne.svg%22+alt%3D%22%22%2F%3E">Niger</option>
+    <option value="NG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fng.svg%22+alt%3D%22%22%2F%3E">Nigeria</option>
+    <option value="NU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnu.svg%22+alt%3D%22%22%2F%3E">Niue</option>
+    <option value="NF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnf.svg%22+alt%3D%22%22%2F%3E">Norfolk Island</option>
+    <option value="KP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkp.svg%22+alt%3D%22%22%2F%3E">North Korea</option>
+    <option value="MP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmp.svg%22+alt%3D%22%22%2F%3E">Northern Mariana Islands</option>
+    <option value="NO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fno.svg%22+alt%3D%22%22%2F%3E">Norway</option>
+    <option value="OM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fom.svg%22+alt%3D%22%22%2F%3E">Oman</option>
+    <option value="PK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpk.svg%22+alt%3D%22%22%2F%3E">Pakistan</option>
+    <option value="PW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpw.svg%22+alt%3D%22%22%2F%3E">Palau</option>
+    <option value="PS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fps.svg%22+alt%3D%22%22%2F%3E">Palestinian Territories</option>
+    <option value="PA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpa.svg%22+alt%3D%22%22%2F%3E">Panama</option>
+    <option value="PG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpg.svg%22+alt%3D%22%22%2F%3E">Papua New Guinea</option>
+    <option value="PY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpy.svg%22+alt%3D%22%22%2F%3E">Paraguay</option>
+    <option value="PE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpe.svg%22+alt%3D%22%22%2F%3E">Peru</option>
+    <option value="PH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fph.svg%22+alt%3D%22%22%2F%3E">Philippines</option>
+    <option value="PL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpl.svg%22+alt%3D%22%22%2F%3E">Poland</option>
+    <option value="PT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpt.svg%22+alt%3D%22%22%2F%3E">Portugal</option>
+    <option value="PR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpr.svg%22+alt%3D%22%22%2F%3E">Puerto Rico</option>
+    <option value="QA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fqa.svg%22+alt%3D%22%22%2F%3E">Qatar</option>
+    <option value="RE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fre.svg%22+alt%3D%22%22%2F%3E">Réunion</option>
+    <option value="RO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fro.svg%22+alt%3D%22%22%2F%3E">Romania</option>
+    <option value="RU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fru.svg%22+alt%3D%22%22%2F%3E">Russia</option>
+    <option value="RW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Frw.svg%22+alt%3D%22%22%2F%3E">Rwanda</option>
+    <option value="WS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fws.svg%22+alt%3D%22%22%2F%3E">Samoa</option>
+    <option value="SM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsm.svg%22+alt%3D%22%22%2F%3E">San Marino</option>
+    <option value="ST" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fst.svg%22+alt%3D%22%22%2F%3E">São Tomé &amp; Príncipe</option>
+    <option value="SA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsa.svg%22+alt%3D%22%22%2F%3E">Saudi Arabia</option>
+    <option value="SN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsn.svg%22+alt%3D%22%22%2F%3E">Senegal</option>
+    <option value="RS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Frs.svg%22+alt%3D%22%22%2F%3E">Serbia</option>
+    <option value="SC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsc.svg%22+alt%3D%22%22%2F%3E">Seychelles</option>
+    <option value="SL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsl.svg%22+alt%3D%22%22%2F%3E">Sierra Leone</option>
+    <option value="SG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsg.svg%22+alt%3D%22%22%2F%3E">Singapore</option>
+    <option value="SK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsk.svg%22+alt%3D%22%22%2F%3E">Slovakia</option>
+    <option value="SI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsi.svg%22+alt%3D%22%22%2F%3E">Slovenia</option>
+    <option value="SB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsb.svg%22+alt%3D%22%22%2F%3E">Solomon Islands</option>
+    <option value="SO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fso.svg%22+alt%3D%22%22%2F%3E">Somalia</option>
+    <option value="ZA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fza.svg%22+alt%3D%22%22%2F%3E">South Africa</option>
+    <option value="GS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgs.svg%22+alt%3D%22%22%2F%3E">South Georgia &amp; South Sandwich Islands</option>
+    <option value="KR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkr.svg%22+alt%3D%22%22%2F%3E">South Korea</option>
+    <option value="ES" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fes.svg%22+alt%3D%22%22%2F%3E">Spain</option>
+    <option value="LK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flk.svg%22+alt%3D%22%22%2F%3E">Sri Lanka</option>
+    <option value="SH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsh.svg%22+alt%3D%22%22%2F%3E">St. Helena</option>
+    <option value="KN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkn.svg%22+alt%3D%22%22%2F%3E">St. Kitts &amp; Nevis</option>
+    <option value="LC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flc.svg%22+alt%3D%22%22%2F%3E">St. Lucia</option>
+    <option value="PM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpm.svg%22+alt%3D%22%22%2F%3E">St. Pierre &amp; Miquelon</option>
+    <option value="VC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvc.svg%22+alt%3D%22%22%2F%3E">St. Vincent &amp; Grenadines</option>
+    <option value="SD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsd.svg%22+alt%3D%22%22%2F%3E">Sudan</option>
+    <option value="SR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsr.svg%22+alt%3D%22%22%2F%3E">Suriname</option>
+    <option value="SJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsj.svg%22+alt%3D%22%22%2F%3E">Svalbard &amp; Jan Mayen</option>
+    <option value="SZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsz.svg%22+alt%3D%22%22%2F%3E">Swaziland</option>
+    <option value="SE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fse.svg%22+alt%3D%22%22%2F%3E">Sweden</option>
+    <option value="CH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fch.svg%22+alt%3D%22%22%2F%3E">Switzerland</option>
+    <option value="SY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsy.svg%22+alt%3D%22%22%2F%3E">Syria</option>
+    <option value="TW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftw.svg%22+alt%3D%22%22%2F%3E">Taiwan</option>
+    <option value="TJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftj.svg%22+alt%3D%22%22%2F%3E">Tajikistan</option>
+    <option value="TZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftz.svg%22+alt%3D%22%22%2F%3E">Tanzania</option>
+    <option value="TH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fth.svg%22+alt%3D%22%22%2F%3E">Thailand</option>
+    <option value="TG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftg.svg%22+alt%3D%22%22%2F%3E">Togo</option>
+    <option value="TK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftk.svg%22+alt%3D%22%22%2F%3E">Tokelau</option>
+    <option value="TO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fto.svg%22+alt%3D%22%22%2F%3E">Tonga</option>
+    <option value="TT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftt.svg%22+alt%3D%22%22%2F%3E">Trinidad &amp; Tobago</option>
+    <option value="TN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftn.svg%22+alt%3D%22%22%2F%3E">Tunisia</option>
+    <option value="TR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftr.svg%22+alt%3D%22%22%2F%3E">Turkey</option>
+    <option value="TM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftm.svg%22+alt%3D%22%22%2F%3E">Turkmenistan</option>
+    <option value="TC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftc.svg%22+alt%3D%22%22%2F%3E">Turks &amp; Caicos Islands</option>
+    <option value="TV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftv.svg%22+alt%3D%22%22%2F%3E">Tuvalu</option>
+    <option value="VI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvi.svg%22+alt%3D%22%22%2F%3E">U.S. Virgin Islands</option>
+    <option value="UG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fug.svg%22+alt%3D%22%22%2F%3E">Uganda</option>
+    <option value="UA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fua.svg%22+alt%3D%22%22%2F%3E">Ukraine</option>
+    <option value="AE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fae.svg%22+alt%3D%22%22%2F%3E">United Arab Emirates</option>
+    <option value="GB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgb.svg%22+alt%3D%22%22%2F%3E">United Kingdom</option>
+    <option value="US" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fus.svg%22+alt%3D%22%22%2F%3E">United States</option>
+    <option value="UY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fuy.svg%22+alt%3D%22%22%2F%3E">Uruguay</option>
+    <option value="UZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fuz.svg%22+alt%3D%22%22%2F%3E">Uzbekistan</option>
+    <option value="VU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvu.svg%22+alt%3D%22%22%2F%3E">Vanuatu</option>
+    <option value="VA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fva.svg%22+alt%3D%22%22%2F%3E">Vatican City</option>
+    <option value="VE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fve.svg%22+alt%3D%22%22%2F%3E">Venezuela</option>
+    <option value="VN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvn.svg%22+alt%3D%22%22%2F%3E">Vietnam</option>
+    <option value="WF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fwf.svg%22+alt%3D%22%22%2F%3E">Wallis &amp; Futuna</option>
+    <option value="EH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Feh.svg%22+alt%3D%22%22%2F%3E">Western Sahara</option>
+    <option value="YE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fye.svg%22+alt%3D%22%22%2F%3E">Yemen</option>
+    <option value="ZM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fzm.svg%22+alt%3D%22%22%2F%3E">Zambia</option>
+    <option value="ZW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fzw.svg%22+alt%3D%22%22%2F%3E">Zimbabwe</option>
 </select>
+
+<br><br><br><br>
 
 <!-- the same select with search-select enabled automatically (using class searchselect-js on the select element) -->
 <!-- with a div replacing the select to show the selected value (using data-fillerid on the select element) -->
-<select id="select3" class="searchselect-js" data-fillerid="select3-fill" >
-    <option value="0">VALUE 0</option>
-    <option value="1">VALUE 1</option>
-    <option value="2">VALUE 2</option>
-    <option value="3">VALUE 3</option>
-    <option value="4">VALUE 4</option>
-    <option value="5">VALUE 5</option>
-    <option value="6">VALUE 6</option>
-    <option value="7">VALUE 7</option>
-    <option value="8">VALUE 8</option>
-    <option value="9">VALUE 9</option>
-</select>
+<!-- with the popup title set with data-title value-->
+SEARCH SELECT AUTO-LOADED <br>
++ TITLE FROM data-title VALUE <br>
++ SELECT HIDDEN AND SELECTION SHOWN IN DIV, this is helpfull when using images in prefix or fillvalue<br>
+
 <div id="select3-fill"></div>
+<select id="select3" class="searchselect-js" data-fillerid="select3-fill" data-title="Choose your country" data-fillvalue="%7Btxt%7D%3Cspan+class%3D%22arrow-down%22%3E%3C%2Fspan%3E" >
+    <!-- DATA-PREFIX => urlencode( '<img class="flagimg" src="https://flagicons.lipis.dev/flags/4x3/{ISOPAYS}.svg" alt=""/>' )  -->
+    <!-- DATA-FILLVALUE => urlencode( '{txt}<span class="arrow-down"></span>' )  // {txt} will be replaced by the prefix + select name -->
+    <!-- DATA-FILLVALUE can be set globally in the select element or by item (see the last item) -->
+    <option value="AF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faf.svg%22+alt%3D%22%22%2F%3E">Afghanistan</option>
+    <option value="AL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fal.svg%22+alt%3D%22%22%2F%3E">Albania</option>
+    <option value="DZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdz.svg%22+alt%3D%22%22%2F%3E">Algeria</option>
+    <option value="AS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fas.svg%22+alt%3D%22%22%2F%3E">American Samoa</option>
+    <option value="AD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fad.svg%22+alt%3D%22%22%2F%3E">Andorra</option>
+    <option value="AO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fao.svg%22+alt%3D%22%22%2F%3E">Angola</option>
+    <option value="AI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fai.svg%22+alt%3D%22%22%2F%3E">Anguilla</option>
+    <option value="AQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faq.svg%22+alt%3D%22%22%2F%3E">Antarctica</option>
+    <option value="AG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fag.svg%22+alt%3D%22%22%2F%3E">Antigua &amp; Barbuda</option>
+    <option value="AR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Far.svg%22+alt%3D%22%22%2F%3E">Argentina</option>
+    <option value="AM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fam.svg%22+alt%3D%22%22%2F%3E">Armenia</option>
+    <option value="AW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faw.svg%22+alt%3D%22%22%2F%3E">Aruba</option>
+    <option value="AU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fau.svg%22+alt%3D%22%22%2F%3E">Australia</option>
+    <option value="AT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fat.svg%22+alt%3D%22%22%2F%3E">Austria</option>
+    <option value="AZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Faz.svg%22+alt%3D%22%22%2F%3E">Azerbaijan</option>
+    <option value="BS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbs.svg%22+alt%3D%22%22%2F%3E">Bahamas</option>
+    <option value="BH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbh.svg%22+alt%3D%22%22%2F%3E">Bahrain</option>
+    <option value="BD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbd.svg%22+alt%3D%22%22%2F%3E">Bangladesh</option>
+    <option value="BB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbb.svg%22+alt%3D%22%22%2F%3E">Barbados</option>
+    <option value="BY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fby.svg%22+alt%3D%22%22%2F%3E">Belarus</option>
+    <option value="BE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbe.svg%22+alt%3D%22%22%2F%3E">Belgium</option>
+    <option value="BZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbz.svg%22+alt%3D%22%22%2F%3E">Belize</option>
+    <option value="BJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbj.svg%22+alt%3D%22%22%2F%3E">Benin</option>
+    <option value="BM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbm.svg%22+alt%3D%22%22%2F%3E">Bermuda</option>
+    <option value="BT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbt.svg%22+alt%3D%22%22%2F%3E">Bhutan</option>
+    <option value="BO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbo.svg%22+alt%3D%22%22%2F%3E">Bolivia</option>
+    <option value="BA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fba.svg%22+alt%3D%22%22%2F%3E">Bosnia &amp; Herzegovina</option>
+    <option value="BW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbw.svg%22+alt%3D%22%22%2F%3E">Botswana</option>
+    <option value="BR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbr.svg%22+alt%3D%22%22%2F%3E">Brazil</option>
+    <option value="IO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fio.svg%22+alt%3D%22%22%2F%3E">British Indian Ocean Territory</option>
+    <option value="VG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvg.svg%22+alt%3D%22%22%2F%3E">British Virgin Islands</option>
+    <option value="BN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbn.svg%22+alt%3D%22%22%2F%3E">Brunei</option>
+    <option value="BG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbg.svg%22+alt%3D%22%22%2F%3E">Bulgaria</option>
+    <option value="BF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbf.svg%22+alt%3D%22%22%2F%3E">Burkina Faso</option>
+    <option value="BI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fbi.svg%22+alt%3D%22%22%2F%3E">Burundi</option>
+    <option value="KH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkh.svg%22+alt%3D%22%22%2F%3E">Cambodia</option>
+    <option value="CM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcm.svg%22+alt%3D%22%22%2F%3E">Cameroon</option>
+    <option value="CA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fca.svg%22+alt%3D%22%22%2F%3E">Canada</option>
+    <option value="CV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcv.svg%22+alt%3D%22%22%2F%3E">Cape Verde</option>
+    <option value="KY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fky.svg%22+alt%3D%22%22%2F%3E">Cayman Islands</option>
+    <option value="CF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcf.svg%22+alt%3D%22%22%2F%3E">Central African Republic</option>
+    <option value="TD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftd.svg%22+alt%3D%22%22%2F%3E">Chad</option>
+    <option value="CL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcl.svg%22+alt%3D%22%22%2F%3E">Chile</option>
+    <option value="CN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcn.svg%22+alt%3D%22%22%2F%3E">China</option>
+    <option value="CX" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcx.svg%22+alt%3D%22%22%2F%3E">Christmas Island</option>
+    <option value="CC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcc.svg%22+alt%3D%22%22%2F%3E">Cocos (Keeling) Islands</option>
+    <option value="CO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fco.svg%22+alt%3D%22%22%2F%3E">Colombia</option>
+    <option value="KM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkm.svg%22+alt%3D%22%22%2F%3E">Comoros</option>
+    <option value="CG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcg.svg%22+alt%3D%22%22%2F%3E">Congo - Brazzaville</option>
+    <option value="CD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcd.svg%22+alt%3D%22%22%2F%3E">Congo - Kinshasa</option>
+    <option value="CK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fck.svg%22+alt%3D%22%22%2F%3E">Cook Islands</option>
+    <option value="CR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcr.svg%22+alt%3D%22%22%2F%3E">Costa Rica</option>
+    <option value="CI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fci.svg%22+alt%3D%22%22%2F%3E">Côte d’Ivoire</option>
+    <option value="HR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhr.svg%22+alt%3D%22%22%2F%3E">Croatia</option>
+    <option value="CU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcu.svg%22+alt%3D%22%22%2F%3E">Cuba</option>
+    <option value="CY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcy.svg%22+alt%3D%22%22%2F%3E">Cyprus</option>
+    <option value="CZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fcz.svg%22+alt%3D%22%22%2F%3E">Czechia</option>
+    <option value="DK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdk.svg%22+alt%3D%22%22%2F%3E">Denmark</option>
+    <option value="DJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdj.svg%22+alt%3D%22%22%2F%3E">Djibouti</option>
+    <option value="DM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdm.svg%22+alt%3D%22%22%2F%3E">Dominica</option>
+    <option value="DO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fdo.svg%22+alt%3D%22%22%2F%3E">Dominican Republic</option>
+    <option value="EC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fec.svg%22+alt%3D%22%22%2F%3E">Ecuador</option>
+    <option value="EG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Feg.svg%22+alt%3D%22%22%2F%3E">Egypt</option>
+    <option value="SV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsv.svg%22+alt%3D%22%22%2F%3E">El Salvador</option>
+    <option value="GQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgq.svg%22+alt%3D%22%22%2F%3E">Equatorial Guinea</option>
+    <option value="ER" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fer.svg%22+alt%3D%22%22%2F%3E">Eritrea</option>
+    <option value="EE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fee.svg%22+alt%3D%22%22%2F%3E">Estonia</option>
+    <option value="ET" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fet.svg%22+alt%3D%22%22%2F%3E">Ethiopia</option>
+    <option value="FK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffk.svg%22+alt%3D%22%22%2F%3E">Falkland Islands</option>
+    <option value="FO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffo.svg%22+alt%3D%22%22%2F%3E">Faroe Islands</option>
+    <option value="FJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffj.svg%22+alt%3D%22%22%2F%3E">Fiji</option>
+    <option value="FI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffi.svg%22+alt%3D%22%22%2F%3E">Finland</option>
+    <option value="FR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffr.svg%22+alt%3D%22%22%2F%3E">France</option>
+    <option value="GF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgf.svg%22+alt%3D%22%22%2F%3E">French Guiana</option>
+    <option value="PF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpf.svg%22+alt%3D%22%22%2F%3E">French Polynesia</option>
+    <option value="GA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fga.svg%22+alt%3D%22%22%2F%3E">Gabon</option>
+    <option value="GM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgm.svg%22+alt%3D%22%22%2F%3E">Gambia</option>
+    <option value="GE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fge.svg%22+alt%3D%22%22%2F%3E">Georgia</option>
+    <option value="DE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fde.svg%22+alt%3D%22%22%2F%3E">Germany</option>
+    <option value="GH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgh.svg%22+alt%3D%22%22%2F%3E">Ghana</option>
+    <option value="GI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgi.svg%22+alt%3D%22%22%2F%3E">Gibraltar</option>
+    <option value="GR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgr.svg%22+alt%3D%22%22%2F%3E">Greece</option>
+    <option value="GL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgl.svg%22+alt%3D%22%22%2F%3E">Greenland</option>
+    <option value="GD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgd.svg%22+alt%3D%22%22%2F%3E">Grenada</option>
+    <option value="GP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgp.svg%22+alt%3D%22%22%2F%3E">Guadeloupe</option>
+    <option value="GU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgu.svg%22+alt%3D%22%22%2F%3E">Guam</option>
+    <option value="GT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgt.svg%22+alt%3D%22%22%2F%3E">Guatemala</option>
+    <option value="GN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgn.svg%22+alt%3D%22%22%2F%3E">Guinea</option>
+    <option value="GW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgw.svg%22+alt%3D%22%22%2F%3E">Guinea-Bissau</option>
+    <option value="GY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgy.svg%22+alt%3D%22%22%2F%3E">Guyana</option>
+    <option value="HT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fht.svg%22+alt%3D%22%22%2F%3E">Haiti</option>
+    <option value="HN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhn.svg%22+alt%3D%22%22%2F%3E">Honduras</option>
+    <option value="HK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhk.svg%22+alt%3D%22%22%2F%3E">Hong Kong SAR China</option>
+    <option value="HU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fhu.svg%22+alt%3D%22%22%2F%3E">Hungary</option>
+    <option value="IS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fis.svg%22+alt%3D%22%22%2F%3E">Iceland</option>
+    <option value="IN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fin.svg%22+alt%3D%22%22%2F%3E">India</option>
+    <option value="ID" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fid.svg%22+alt%3D%22%22%2F%3E">Indonesia</option>
+    <option value="IR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fir.svg%22+alt%3D%22%22%2F%3E">Iran</option>
+    <option value="IQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fiq.svg%22+alt%3D%22%22%2F%3E">Iraq</option>
+    <option value="IE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fie.svg%22+alt%3D%22%22%2F%3E">Ireland</option>
+    <option value="IL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fil.svg%22+alt%3D%22%22%2F%3E">Israel</option>
+    <option value="IT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fit.svg%22+alt%3D%22%22%2F%3E">Italy</option>
+    <option value="JM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjm.svg%22+alt%3D%22%22%2F%3E">Jamaica</option>
+    <option value="JP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjp.svg%22+alt%3D%22%22%2F%3E">Japan</option>
+    <option value="JE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fje.svg%22+alt%3D%22%22%2F%3E">Jersey</option>
+    <option value="JO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fjo.svg%22+alt%3D%22%22%2F%3E">Jordan</option>
+    <option value="KZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkz.svg%22+alt%3D%22%22%2F%3E">Kazakhstan</option>
+    <option value="KE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fke.svg%22+alt%3D%22%22%2F%3E">Kenya</option>
+    <option value="KI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fki.svg%22+alt%3D%22%22%2F%3E">Kiribati</option>
+    <option value="KW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkw.svg%22+alt%3D%22%22%2F%3E">Kuwait</option>
+    <option value="KG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkg.svg%22+alt%3D%22%22%2F%3E">Kyrgyzstan</option>
+    <option value="LA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fla.svg%22+alt%3D%22%22%2F%3E">Laos</option>
+    <option value="LV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flv.svg%22+alt%3D%22%22%2F%3E">Latvia</option>
+    <option value="LB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flb.svg%22+alt%3D%22%22%2F%3E">Lebanon</option>
+    <option value="LS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fls.svg%22+alt%3D%22%22%2F%3E">Lesotho</option>
+    <option value="LR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flr.svg%22+alt%3D%22%22%2F%3E">Liberia</option>
+    <option value="LY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fly.svg%22+alt%3D%22%22%2F%3E">Libya</option>
+    <option value="LI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fli.svg%22+alt%3D%22%22%2F%3E">Liechtenstein</option>
+    <option value="LT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flt.svg%22+alt%3D%22%22%2F%3E">Lithuania</option>
+    <option value="LU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flu.svg%22+alt%3D%22%22%2F%3E">Luxembourg</option>
+    <option value="MO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmo.svg%22+alt%3D%22%22%2F%3E">Macau SAR China</option>
+    <option value="MK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmk.svg%22+alt%3D%22%22%2F%3E">Macedonia</option>
+    <option value="MG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmg.svg%22+alt%3D%22%22%2F%3E">Madagascar</option>
+    <option value="MW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmw.svg%22+alt%3D%22%22%2F%3E">Malawi</option>
+    <option value="MY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmy.svg%22+alt%3D%22%22%2F%3E">Malaysia</option>
+    <option value="MV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmv.svg%22+alt%3D%22%22%2F%3E">Maldives</option>
+    <option value="ML" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fml.svg%22+alt%3D%22%22%2F%3E">Mali</option>
+    <option value="MT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmt.svg%22+alt%3D%22%22%2F%3E">Malta</option>
+    <option value="MH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmh.svg%22+alt%3D%22%22%2F%3E">Marshall Islands</option>
+    <option value="MQ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmq.svg%22+alt%3D%22%22%2F%3E">Martinique</option>
+    <option value="MR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmr.svg%22+alt%3D%22%22%2F%3E">Mauritania</option>
+    <option value="MU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmu.svg%22+alt%3D%22%22%2F%3E">Mauritius</option>
+    <option value="YT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fyt.svg%22+alt%3D%22%22%2F%3E">Mayotte</option>
+    <option value="MX" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmx.svg%22+alt%3D%22%22%2F%3E">Mexico</option>
+    <option value="FM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ffm.svg%22+alt%3D%22%22%2F%3E">Micronesia</option>
+    <option value="MD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmd.svg%22+alt%3D%22%22%2F%3E">Moldova</option>
+    <option value="MC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmc.svg%22+alt%3D%22%22%2F%3E">Monaco</option>
+    <option value="MN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmn.svg%22+alt%3D%22%22%2F%3E">Mongolia</option>
+    <option value="MS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fms.svg%22+alt%3D%22%22%2F%3E">Montserrat</option>
+    <option value="MA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fma.svg%22+alt%3D%22%22%2F%3E">Morocco</option>
+    <option value="MZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmz.svg%22+alt%3D%22%22%2F%3E">Mozambique</option>
+    <option value="MM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmm.svg%22+alt%3D%22%22%2F%3E">Myanmar (Burma)</option>
+    <option value="NA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fna.svg%22+alt%3D%22%22%2F%3E">Namibia</option>
+    <option value="NR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnr.svg%22+alt%3D%22%22%2F%3E">Nauru</option>
+    <option value="NP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnp.svg%22+alt%3D%22%22%2F%3E">Nepal</option>
+    <option value="NL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnl.svg%22+alt%3D%22%22%2F%3E">Netherlands</option>
+    <option value="NC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnc.svg%22+alt%3D%22%22%2F%3E">New Caledonia</option>
+    <option value="NZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnz.svg%22+alt%3D%22%22%2F%3E">New Zealand</option>
+    <option value="NI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fni.svg%22+alt%3D%22%22%2F%3E">Nicaragua</option>
+    <option value="NE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fne.svg%22+alt%3D%22%22%2F%3E">Niger</option>
+    <option value="NG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fng.svg%22+alt%3D%22%22%2F%3E">Nigeria</option>
+    <option value="NU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnu.svg%22+alt%3D%22%22%2F%3E">Niue</option>
+    <option value="NF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fnf.svg%22+alt%3D%22%22%2F%3E">Norfolk Island</option>
+    <option value="KP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkp.svg%22+alt%3D%22%22%2F%3E">North Korea</option>
+    <option value="MP" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fmp.svg%22+alt%3D%22%22%2F%3E">Northern Mariana Islands</option>
+    <option value="NO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fno.svg%22+alt%3D%22%22%2F%3E">Norway</option>
+    <option value="OM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fom.svg%22+alt%3D%22%22%2F%3E">Oman</option>
+    <option value="PK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpk.svg%22+alt%3D%22%22%2F%3E">Pakistan</option>
+    <option value="PW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpw.svg%22+alt%3D%22%22%2F%3E">Palau</option>
+    <option value="PS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fps.svg%22+alt%3D%22%22%2F%3E">Palestinian Territories</option>
+    <option value="PA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpa.svg%22+alt%3D%22%22%2F%3E">Panama</option>
+    <option value="PG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpg.svg%22+alt%3D%22%22%2F%3E">Papua New Guinea</option>
+    <option value="PY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpy.svg%22+alt%3D%22%22%2F%3E">Paraguay</option>
+    <option value="PE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpe.svg%22+alt%3D%22%22%2F%3E">Peru</option>
+    <option value="PH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fph.svg%22+alt%3D%22%22%2F%3E">Philippines</option>
+    <option value="PL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpl.svg%22+alt%3D%22%22%2F%3E">Poland</option>
+    <option value="PT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpt.svg%22+alt%3D%22%22%2F%3E">Portugal</option>
+    <option value="PR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpr.svg%22+alt%3D%22%22%2F%3E">Puerto Rico</option>
+    <option value="QA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fqa.svg%22+alt%3D%22%22%2F%3E">Qatar</option>
+    <option value="RE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fre.svg%22+alt%3D%22%22%2F%3E">Réunion</option>
+    <option value="RO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fro.svg%22+alt%3D%22%22%2F%3E">Romania</option>
+    <option value="RU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fru.svg%22+alt%3D%22%22%2F%3E">Russia</option>
+    <option value="RW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Frw.svg%22+alt%3D%22%22%2F%3E">Rwanda</option>
+    <option value="WS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fws.svg%22+alt%3D%22%22%2F%3E">Samoa</option>
+    <option value="SM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsm.svg%22+alt%3D%22%22%2F%3E">San Marino</option>
+    <option value="ST" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fst.svg%22+alt%3D%22%22%2F%3E">São Tomé &amp; Príncipe</option>
+    <option value="SA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsa.svg%22+alt%3D%22%22%2F%3E">Saudi Arabia</option>
+    <option value="SN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsn.svg%22+alt%3D%22%22%2F%3E">Senegal</option>
+    <option value="RS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Frs.svg%22+alt%3D%22%22%2F%3E">Serbia</option>
+    <option value="SC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsc.svg%22+alt%3D%22%22%2F%3E">Seychelles</option>
+    <option value="SL" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsl.svg%22+alt%3D%22%22%2F%3E">Sierra Leone</option>
+    <option value="SG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsg.svg%22+alt%3D%22%22%2F%3E">Singapore</option>
+    <option value="SK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsk.svg%22+alt%3D%22%22%2F%3E">Slovakia</option>
+    <option value="SI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsi.svg%22+alt%3D%22%22%2F%3E">Slovenia</option>
+    <option value="SB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsb.svg%22+alt%3D%22%22%2F%3E">Solomon Islands</option>
+    <option value="SO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fso.svg%22+alt%3D%22%22%2F%3E">Somalia</option>
+    <option value="ZA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fza.svg%22+alt%3D%22%22%2F%3E">South Africa</option>
+    <option value="GS" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgs.svg%22+alt%3D%22%22%2F%3E">South Georgia &amp; South Sandwich Islands</option>
+    <option value="KR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkr.svg%22+alt%3D%22%22%2F%3E">South Korea</option>
+    <option value="ES" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fes.svg%22+alt%3D%22%22%2F%3E">Spain</option>
+    <option value="LK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flk.svg%22+alt%3D%22%22%2F%3E">Sri Lanka</option>
+    <option value="SH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsh.svg%22+alt%3D%22%22%2F%3E">St. Helena</option>
+    <option value="KN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fkn.svg%22+alt%3D%22%22%2F%3E">St. Kitts &amp; Nevis</option>
+    <option value="LC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Flc.svg%22+alt%3D%22%22%2F%3E">St. Lucia</option>
+    <option value="PM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fpm.svg%22+alt%3D%22%22%2F%3E">St. Pierre &amp; Miquelon</option>
+    <option value="VC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvc.svg%22+alt%3D%22%22%2F%3E">St. Vincent &amp; Grenadines</option>
+    <option value="SD" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsd.svg%22+alt%3D%22%22%2F%3E">Sudan</option>
+    <option value="SR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsr.svg%22+alt%3D%22%22%2F%3E">Suriname</option>
+    <option value="SJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsj.svg%22+alt%3D%22%22%2F%3E">Svalbard &amp; Jan Mayen</option>
+    <option value="SZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsz.svg%22+alt%3D%22%22%2F%3E">Swaziland</option>
+    <option value="SE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fse.svg%22+alt%3D%22%22%2F%3E">Sweden</option>
+    <option value="CH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fch.svg%22+alt%3D%22%22%2F%3E">Switzerland</option>
+    <option value="SY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fsy.svg%22+alt%3D%22%22%2F%3E">Syria</option>
+    <option value="TW" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftw.svg%22+alt%3D%22%22%2F%3E">Taiwan</option>
+    <option value="TJ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftj.svg%22+alt%3D%22%22%2F%3E">Tajikistan</option>
+    <option value="TZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftz.svg%22+alt%3D%22%22%2F%3E">Tanzania</option>
+    <option value="TH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fth.svg%22+alt%3D%22%22%2F%3E">Thailand</option>
+    <option value="TG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftg.svg%22+alt%3D%22%22%2F%3E">Togo</option>
+    <option value="TK" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftk.svg%22+alt%3D%22%22%2F%3E">Tokelau</option>
+    <option value="TO" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fto.svg%22+alt%3D%22%22%2F%3E">Tonga</option>
+    <option value="TT" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftt.svg%22+alt%3D%22%22%2F%3E">Trinidad &amp; Tobago</option>
+    <option value="TN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftn.svg%22+alt%3D%22%22%2F%3E">Tunisia</option>
+    <option value="TR" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftr.svg%22+alt%3D%22%22%2F%3E">Turkey</option>
+    <option value="TM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftm.svg%22+alt%3D%22%22%2F%3E">Turkmenistan</option>
+    <option value="TC" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftc.svg%22+alt%3D%22%22%2F%3E">Turks &amp; Caicos Islands</option>
+    <option value="TV" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Ftv.svg%22+alt%3D%22%22%2F%3E">Tuvalu</option>
+    <option value="VI" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvi.svg%22+alt%3D%22%22%2F%3E">U.S. Virgin Islands</option>
+    <option value="UG" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fug.svg%22+alt%3D%22%22%2F%3E">Uganda</option>
+    <option value="UA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fua.svg%22+alt%3D%22%22%2F%3E">Ukraine</option>
+    <option value="AE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fae.svg%22+alt%3D%22%22%2F%3E">United Arab Emirates</option>
+    <option value="GB" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fgb.svg%22+alt%3D%22%22%2F%3E">United Kingdom</option>
+    <option value="US" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fus.svg%22+alt%3D%22%22%2F%3E">United States</option>
+    <option value="UY" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fuy.svg%22+alt%3D%22%22%2F%3E">Uruguay</option>
+    <option value="UZ" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fuz.svg%22+alt%3D%22%22%2F%3E">Uzbekistan</option>
+    <option value="VU" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvu.svg%22+alt%3D%22%22%2F%3E">Vanuatu</option>
+    <option value="VA" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fva.svg%22+alt%3D%22%22%2F%3E">Vatican City</option>
+    <option value="VE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fve.svg%22+alt%3D%22%22%2F%3E">Venezuela</option>
+    <option value="VN" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fvn.svg%22+alt%3D%22%22%2F%3E">Vietnam</option>
+    <option value="WF" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fwf.svg%22+alt%3D%22%22%2F%3E">Wallis &amp; Futuna</option>
+    <option value="EH" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Feh.svg%22+alt%3D%22%22%2F%3E">Western Sahara</option>
+    <option value="YE" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fye.svg%22+alt%3D%22%22%2F%3E">Yemen</option>
+    <option value="ZM" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fzm.svg%22+alt%3D%22%22%2F%3E">Zambia</option>
+    <option value="ZW" data-fillvalue="HELLO%20%7Btxt%7D%3Cspan+class%3D%22arrow-down%22%3E%3C%2Fspan%3E" data-prefix="%3Cimg+class%3D%22flagimg%22+src%3D%22https%3A%2F%2Fflagicons.lipis.dev%2Fflags%2F4x3%2Fzw.svg%22+alt%3D%22%22%2F%3E">Zimbabwe</option>
+</select>
 
 </body>
 </html>

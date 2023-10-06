@@ -81,23 +81,29 @@ body.ssjs-open{
     text-align: center;
     padding:10px 50px;
     height:60px;
-    width: 100%;/*calc(100% - 50px);*/
+    font-size: 200%;
+    font-weight: bold;
 }
 
 .ssjs-searchinput{
-    margin-left:   5px;
-    margin-right:  5px;
+    margin-left:   10px;
+    margin-right:  10px;
     margin-top:    0;
     margin-bottom: 10px;
-    width:         calc(100% - 10px);
+    width:         calc(100% - 20px);
+    padding:       0;
+    height:        30px;
+    display:       block;
+    appearance:    none;
+    border:        1px solid #000;
+    border-radius: 5px;
 }
 .ssjs-searchico{
 
 }
 
 .ssjs-list{
-    height:              calc(var(--viewporHeight,100vh) - 200px); /*min(100dvh - 200px, 800px);*/
-    max-height:          800px;
+    height:              calc(var(--viewporHeight,100vh) - 205px); /*min(100dvh - 200px, 800px);*/
     overflow-y:          auto;
     overscroll-behavior: none;
 }
@@ -107,10 +113,10 @@ body.ssjs-open{
     padding:     8px;
     user-select: none;
     cursor:      pointer;
-    border-top:  1px solid #ffffff10;
+    border-top:  1px solid #2670D010;
 }
 .ssjs-item:hover{
-    background: #ffffff20;
+    background: #2670D020;
 }
 .ssjs-item.ssjs-selected{
     background: #2670D0;

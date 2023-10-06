@@ -21,7 +21,17 @@ let SearchSelectJS = function( elem )
     // un object de remplacement pour le remplissage
     this.fillerObject = elem.dataset.fillerid ? document.getElementById( elem.dataset.fillerid ) : null;
     if( this.fillerObject != null )
+    {
+        // get the global fill value if defined
+        this.globalFillValue = elem.dataset.fillvalue ?? null;
+
+        elem.style.display = 'none';
         this.fillerObject.addEventListener('click',()=>_this.open())
+    }
+    else
+    {
+        this.globalFillValue = null;
+    }
 
     let titre = '';
     if( elem.dataset.title )
@@ -51,7 +61,7 @@ let SearchSelectJS = function( elem )
     // le titre
     this.titre = document.createElement('div');
     this.titre.classList.add('ssjs-title');
-    this.titre.innerHTML = '<h4>' + titre + '</h4>';
+    this.titre.innerHTML = titre;
     this.popup.appendChild(this.titre);
 
     // le bouton close
@@ -229,6 +239,8 @@ SearchSelectJS.prototype.onkeydown = function(e, _this)
  */
 SearchSelectJS.prototype.open = function()
 {
+    SearchSelectJS.log('[SSJS] open', this.isOpen);
+
     if( this.isOpen === true )
         return;
 
@@ -516,9 +528,10 @@ let SearchSelectJS_item = function( elem, option, parent )
         txt    = txt + urldecode(option.dataset.suffix);
     }
 
-    if( option.dataset.fillvalue )
+    let fillval = option.dataset.fillvalue ?? parent.globalFillValue;
+    if( fillval )
     {
-        let fillvalue = urldecode(option.dataset.fillvalue);
+        let fillvalue = urldecode(fillval);
         this.fillValue = fillvalue.replace('{prefix}',prefix).replace('{suffix}',suffix).replace('{txt}',txt);
     }
     else
