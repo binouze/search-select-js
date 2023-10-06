@@ -1,0 +1,121 @@
+/** GLOBAL **/
+
+:root{
+    --viewporHeight: 100vh;
+}
+
+body,html{
+    position: relative;
+}
+
+body.ssjs-open{
+    overflow:      hidden !important;
+    padding-right: 17px;
+}
+
+.ssjs-backdrop{
+    display:          none;
+    position:         fixed;
+    top:              0;
+    left:             0;
+    width:            100vw;
+    height:           100vh;
+    background-color: #000000a0;
+    backdrop-filter:  blur(5px);
+    z-index:          998;
+}
+.ssjs-backdrop.ssjs-show{
+    display: block;
+}
+
+.ssjs-container{
+    display: none;
+}
+.ssjs-container.ssjs-show{
+    display:  block;
+    overflow: hidden !important;
+}
+
+.ssjs-popup{
+    display:    block;
+    position:   fixed;
+    max-width:  calc(100vw - 20px);
+    width:      600px;
+
+    height: calc(var(--viewporHeight,100vh) - 83px);
+
+    /** centering **/
+
+    left:      50%;
+    top:       40px;
+    transform: translate(-50%, 0);
+    z-index:   999;
+
+    /** styling **/
+
+    border-radius: 10px;
+    background:    #fff;
+    box-shadow:    0 0 10px #00000050;
+}
+.ssjs-btnClose{
+    position:        absolute;
+    top:             5px;
+    right:           5px;
+    width:           40px;
+    height:          40px;
+    border-radius:   40px;
+    background:      #fff;
+    border:          1px solid #000;
+    box-shadow:      0 0 5px #00000050;
+    cursor:          pointer;
+    color:           #000;
+    display:         flex;
+    align-items:     center;
+    justify-content: center;
+}
+.ssjs-btnClose:hover{
+    transform: scale(1.01);
+}
+
+.ssjs-title{
+    text-align: center;
+    padding:10px 50px;
+    height:60px;
+    width: 100%;/*calc(100% - 50px);*/
+}
+
+.ssjs-searchinput{
+    margin-left:   5px;
+    margin-right:  5px;
+    margin-top:    0;
+    margin-bottom: 10px;
+    width:         calc(100% - 10px);
+}
+.ssjs-searchico{
+
+}
+
+.ssjs-list{
+    height:              calc(var(--viewporHeight,100vh) - 200px); /*min(100dvh - 200px, 800px);*/
+    max-height:          800px;
+    overflow-y:          auto;
+    overscroll-behavior: none;
+}
+
+
+.ssjs-item{
+    padding:     8px;
+    user-select: none;
+    cursor:      pointer;
+    border-top:  1px solid #ffffff10;
+}
+.ssjs-item:hover{
+    background: #ffffff20;
+}
+.ssjs-item.ssjs-selected{
+    background: #2670D0;
+}
+
+.ssjs-item.ssjs-hidden{
+    display:none;
+}

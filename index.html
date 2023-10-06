@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+
+    <script src="https://cdn.jsdelivr.net/gh/binouze/search-select-js/src/searchselect.min.js"></script>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/binouze/search-select-js/src/searchselect.min.css" type="text/css" />
+
+    <style>
+        body{
+            background-color: #4158D0;
+            background-image: linear-gradient(43deg, #4158D0 0%, #C850C0 46%, #FFCC70 100%);
+            background-attachment: fixed;
+        }
+    </style>
+</head>
+<body>
+
+<!-- a select input classic -->
+<select id="select0">
+    <option value="0">VALUE 0</option>
+    <option value="1">VALUE 1</option>
+    <option value="2">VALUE 2</option>
+    <option value="3">VALUE 3</option>
+    <option value="4">VALUE 4</option>
+    <option value="5">VALUE 5</option>
+    <option value="6">VALUE 6</option>
+    <option value="7">VALUE 7</option>
+    <option value="8">VALUE 8</option>
+    <option value="9">VALUE 9</option>
+</select>
+
+<!-- the same select with search-select enabled automatically (using class searchselect-js on the select element) -->
+<select id="select1" class="searchselect-js">
+    <option value="0">VALUE 0</option>
+    <option value="1">VALUE 1</option>
+    <option value="2">VALUE 2</option>
+    <option value="3">VALUE 3</option>
+    <option value="4">VALUE 4</option>
+    <option value="5">VALUE 5</option>
+    <option value="6">VALUE 6</option>
+    <option value="7">VALUE 7</option>
+    <option value="8">VALUE 8</option>
+    <option value="9">VALUE 9</option>
+</select>
+
+<!-- the same select with search-select enabled but initialised using javascript -->
+<select id="select2">
+    <option value="0">VALUE 0</option>
+    <option value="1">VALUE 1</option>
+    <option value="2">VALUE 2</option>
+    <option value="3">VALUE 3</option>
+    <option value="4">VALUE 4</option>
+    <option value="5">VALUE 5</option>
+    <option value="6">VALUE 6</option>
+    <option value="7">VALUE 7</option>
+    <option value="8">VALUE 8</option>
+    <option value="9">VALUE 9</option>
+</select>
+
+<!-- the same select with search-select enabled automatically (using class searchselect-js on the select element) -->
+<!-- with a div replacing the select to show the selected value (using data-fillerid on the select element) -->
+<select id="select3" class="searchselect-js" data-fillerid="select3-fill" >
+    <option value="0">VALUE 0</option>
+    <option value="1">VALUE 1</option>
+    <option value="2">VALUE 2</option>
+    <option value="3">VALUE 3</option>
+    <option value="4">VALUE 4</option>
+    <option value="5">VALUE 5</option>
+    <option value="6">VALUE 6</option>
+    <option value="7">VALUE 7</option>
+    <option value="8">VALUE 8</option>
+    <option value="9">VALUE 9</option>
+</select>
+<div id="select3-fill"></div>
+
+</body>
+</html>
